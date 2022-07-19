@@ -1,0 +1,17 @@
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.Services.deps.json
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.Services.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\ref\CRUDAPI.Services.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.Services.pdb
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.AssemblyInfo.cs
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\ref\CRUDAPI.Services.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.pdb
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.DataAccess.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.Models.dll
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.DataAccess.pdb
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\bin\Debug\net5.0\CRUDAPI.Models.pdb
+C:\Users\Asus\Desktop\Xeynergy\CRUDAPI\CRUDAPI.Services\obj\Debug\net5.0\CRUDAPI.Services.csproj.CopyComplete

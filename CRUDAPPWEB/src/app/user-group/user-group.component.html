@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="userGroupForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label for="inputAddress">User Group Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="User Group Name"
+            formControlName="GroupName"
+            [disabled]="formMode == 'VIEW'"
+          />
+          <p
+            *ngIf="
+              userGroupForm.controls['GroupName'].invalid &&
+              (userGroupForm.controls['GroupName'].dirty ||
+                userGroupForm.controls['GroupName'].touched)
+            "
+            class="alert alert-danger"
+          >
+            User group name is required!
+          </p>
+        </div>
+        <div class="form-group mt-3">
+          <div class="form-group">
+            <label for="inputAddress">Access Rule</label>
+            <select
+              class="form-control"
+              id="inputAddress"
+              placeholder="Access Rule"
+              formControlName="AccessRuleID"
+            >
+              <option value="null" selected disabled>Select Access Rule</option>
+              <option
+                *ngFor="let rule of accessRules"
+                [ngValue]="rule.accessRuleID"
+              >
+                {{ rule.ruleName }}
+              </option>
+            </select>
+            <p
+              *ngIf="
+                userGroupForm.controls['AccessRuleID'].invalid &&
+                (userGroupForm.controls['AccessRuleID'].dirty ||
+                  userGroupForm.controls['AccessRuleID'].touched)
+              "
+              class="alert alert-danger"
+            >
+              User group name is required!
+            </p>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mt-3"
+          [disabled]="submitted"
+          *ngIf="formMode != 'VIEW'"
+        >
+          {{
+            formMode == "CREATE"
+              ? "Add User Group"
+              : formMode == "UPDATE"
+              ? "Save"
+              : ""
+          }}
+        </button>
+      </form>
+      <p *ngIf="success" class="alert alert-success">{{ message }}</p>
+    </div>
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User Group</th>
+              <th>Rule Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let userGroup of userGroups; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ userGroup.groupName }}</td>
+              <td>{{ userGroup.accessRule.ruleName }}</td>
+              <td>
+                <a (click)="viewUserGroup(userGroup.userGroupID)" class="m-2">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                <a (click)="updateUserGroup(userGroup.userGroupID)" class="m-2">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a (click)="deleteUserGroup(userGroup.userGroupID)" class="m-2">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,188 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-6">
+              <label for="inputAddress">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="First Name"
+                formControlName="FirstName"
+              />
+              <p
+                *ngIf="
+                  userForm.controls['FirstName'].invalid &&
+                  (userForm.controls['FirstName'].dirty ||
+                    userForm.controls['FirstName'].touched)
+                "
+                class="alert alert-danger"
+              >
+                First name is required!
+              </p>
+            </div>
+            <div class="col-6">
+              <label for="inputAddress">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="Last Name"
+                formControlName="LastName"
+              />
+              <p
+                *ngIf="
+                  userForm.controls['LastName'].invalid &&
+                  (userForm.controls['LastName'].dirty ||
+                    userForm.controls['LastName'].touched)
+                "
+                class="alert alert-danger"
+              >
+                Last name is required!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-6">
+                <label for="inputAddress">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputAddress"
+                  placeholder="Email"
+                  formControlName="Email"
+                />
+                <p
+                  *ngIf="
+                    userForm.controls['Email'].invalid &&
+                    (userForm.controls['Email'].dirty ||
+                      userForm.controls['Email'].touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  First name is required!
+                </p>
+              </div>
+              <div class="col-6">
+                <label for="inputAddress">Attached Customer</label>
+                <select
+                  class="form-control"
+                  id="inputAddress"
+                  placeholder="Attached Customer"
+                  formControlName="AttachedCustomerID"
+                >
+                  <option value="null" selected disabled>
+                    Select Customer
+                  </option>
+                  <option
+                    *ngFor="let customer of customers"
+                    [ngValue]="customer.customerID"
+                  >
+                    {{ customer.customerName }}
+                  </option>
+                </select>
+                <p
+                  *ngIf="
+                    userForm.controls['AttachedCustomerID'].invalid &&
+                    (userForm.controls['AttachedCustomerID'].dirty ||
+                      userForm.controls['AttachedCustomerID'].touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  Attached customer is required!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <div class="form-group">
+            <label for="inputAddress">User Group</label>
+            <select
+              class="form-control"
+              id="inputAddress"
+              placeholder="User Group"
+              formControlName="UserGroupID"
+            >
+              <option value="null" selected disabled>Select User Group</option>
+              <option
+                *ngFor="let userGroup of userGroups"
+                [ngValue]="userGroup.userGroupID"
+              >
+                {{ userGroup.groupName }}
+              </option>
+            </select>
+            <p
+              *ngIf="
+                userForm.controls['UserGroupID'].invalid &&
+                (userForm.controls['UserGroupID'].dirty ||
+                  userForm.controls['UserGroupID'].touched)
+              "
+              class="alert alert-danger"
+            >
+              User group name is required!
+            </p>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mt-3"
+          [disabled]="submitted"
+          *ngIf="formMode != 'VIEW'"
+        >
+          {{
+            formMode == "CREATE"
+              ? "Add User"
+              : formMode == "UPDATE"
+              ? "Save"
+              : ""
+          }}
+        </button>
+      </form>
+      <p *ngIf="success" class="alert alert-success">{{ message }}</p>
+    </div>
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User Name</th>
+              <th>E-mail</th>
+              <th>Attached Customer ID</th>
+              <th>User Group</th>
+              <th>Access Rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ user.fullName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.attachedCustomerID }}</td>
+              <td>{{ user.userGroup.groupName }}</td>
+              <td>{{ user.userGroup.accessRule.ruleName }}</td>
+              <td>
+                <a (click)="viewUser(user.personID)" class="m-2">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                <a (click)="updateUser(user.personID)" class="m-2">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a (click)="deleteUser(user.personID)" class="m-2">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

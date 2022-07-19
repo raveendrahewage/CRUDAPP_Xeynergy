@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="row"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="accessRuleform" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label for="inputAddress">Rule Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Access Rule Name"
+            formControlName="RuleName"
+          />
+          <p
+            *ngIf="
+              accessRuleform.controls['RuleName'].invalid &&
+              (accessRuleform.controls['RuleName'].dirty ||
+                accessRuleform.controls['RuleName'].touched)
+            "
+            class="alert alert-danger"
+          >
+            Access rule name is required!
+          </p>
+        </div>
+        <div class="form-group mt-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="gridCheck"
+              formControlName="Permission"
+            />
+            <label class="form-check-label" for="gridCheck"> Permission </label>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mt-3"
+          [disabled]="submitted"
+          *ngIf="formMode != 'VIEW'"
+        >
+          {{
+            formMode == "CREATE"
+              ? "Add Rule"
+              : formMode == "UPDATE"
+              ? "Save"
+              : ""
+          }}
+        </button>
+      </form>
+      <p *ngIf="success" class="alert alert-success">{{ message }}</p>
+    </div>
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Rule Name</th>
+              <th>Permission</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rule of accessRules; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ rule.ruleName }}</td>
+              <td>{{ rule.permission }}</td>
+              <td>
+                <a (click)="viewAccessRule(rule.accessRuleID)" class="m-2">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a>
+                <a (click)="updateAccessRule(rule.accessRuleID)" class="m-2">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a (click)="deleteAccessRules(rule.accessRuleID)" class="m-2">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
