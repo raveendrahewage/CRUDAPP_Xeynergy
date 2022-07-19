@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user/user.service';
 import { UserGroupService } from './../services/user-group/user-group.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-user',
@@ -150,6 +151,10 @@ export class UserComponent implements OnInit {
         );
       }
     }
+  }
+
+  getCustomer(ID: number){
+    return this.customers.filter(x=>x.customerID === ID)[0].customerName;
   }
 
   resetForm() {

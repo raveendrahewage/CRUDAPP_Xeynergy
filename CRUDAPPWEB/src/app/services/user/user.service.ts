@@ -30,7 +30,7 @@ export class UserService {
   }
 
   putUser(User: User) {
-    return this.http.put(`${this.baseURL}/${User.UserGroupID}`, User);
+    return this.http.put(`${this.baseURL}/${User.PersonID}`, User);
   }
 
   deleteUser(ID: number) {
