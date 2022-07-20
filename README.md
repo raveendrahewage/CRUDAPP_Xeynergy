@@ -6,9 +6,9 @@
 - Open the `CRUDAPI` project in visual studio.
 - Add connection to the sql server from `Server Explora`.
   <br/>
-  &emsp; Add Server - View -> Sever Explora - Server
+  &emsp; Add Server - View -> Sever Explora -> Server
   <br/>
-  &emsp; Add Data Connection - View -> Server Explora - Data Connection
+  &emsp; Add Data Connection - View -> Server Explora -> Data Connection
   <br/>
 - Replace the connection string in the `CRUDAPIDBContext.cs` file with your own connection string.
   &emsp;
@@ -16,7 +16,7 @@
   <br/>
   &emsp; Tools -> NuGet Package Manager -> Package Manager Console
 - Run `dotnet ef migrations add --project .\CRUDAPI.DataAccess`.
-- Run `dotnet ef database update`.
+- Run `dotnet ef database update --project .\CRUDAPI.DataAccess`.
 - Then run the `CRUDAPI`.
 
 ---
