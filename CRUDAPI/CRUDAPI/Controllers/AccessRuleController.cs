@@ -60,6 +60,7 @@ namespace CRUDAPI.Controllers
                 return Ok(_accessRuleRepository.UpdateAccessRule(ID, changedAccessRule));
             };
         }
+
         [HttpDelete("{ID}")]
         public IActionResult DeleteAccessRule(int ID)
         {
@@ -69,6 +70,14 @@ namespace CRUDAPI.Controllers
                 _accessRuleRepository.DeleteAccessRule(ID);
                 return Ok();
             }
+        }
+
+        [HttpGet("userlist/{ID}")]
+        public IActionResult GetAccessRuleUserList(int ID)
+        {
+            AccessRule foundAccessRule = _accessRuleRepository.AccessRuleByID(ID);
+            if (foundAccessRule is null) return NotFound();
+            else return Ok(_accessRuleRepository.AccessRuleUserList(ID));
         }
     }
 }

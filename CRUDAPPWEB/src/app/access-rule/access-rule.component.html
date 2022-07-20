@@ -50,6 +50,30 @@
         </button>
       </form>
       <p *ngIf="success" class="alert alert-success">{{ message }}</p>
+      <div class="table-responsive mt-3" *ngIf="formMode == 'VIEW'">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User Name</th>
+              <th>E-mail</th>
+              <th>Attached Customer ID</th>
+              <th>User Group</th>
+              <th>Access Rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of accessRuleUsers; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ user.firstName + " " + user.lastName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ getCustomer(user.attachedCustomerID) }}</td>
+              <td>{{ user.userGroup.groupName }}</td>
+              <td>{{ user.userGroup.accessRule.ruleName }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="col-md-6">
       <div class="table-responsive">

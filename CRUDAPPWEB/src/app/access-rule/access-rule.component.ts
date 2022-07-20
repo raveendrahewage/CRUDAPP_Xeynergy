@@ -11,7 +11,9 @@ export class AccessRuleComponent implements OnInit {
   accessRules: any;
   submitted: boolean = false;
   success: boolean = false;
+  customers: any[] = [];
   message: string = '';
+  accessRuleUsers: any;
   formMode: string = 'CREATE';
   accessRuleform = new FormGroup({
     AccessRuleID: new FormControl(null),
@@ -25,6 +27,22 @@ export class AccessRuleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAccessRules();
+    this.getCustomers();
+  }
+
+  getCustomers(): void {
+    this.customers.push({
+      customerID: 1,
+      customerName: 'Gangana Lakruwan',
+    });
+    this.customers.push({
+      customerID: 2,
+      customerName: 'Chanaka Priyadarshana',
+    });
+    this.customers.push({
+      customerID: 3,
+      customerName: 'Iresha Silva',
+    });
   }
 
   getAccessRules(): void {
@@ -65,9 +83,20 @@ export class AccessRuleComponent implements OnInit {
       }
     );
   }
+  getAccessRuleUsers(ID: number): void {
+    this.AccessRuleService.getAccessRuleUsers(ID).subscribe(
+      (res: any) => {
+        this.accessRuleUsers = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
   viewAccessRule(ID: number): void {
     this.formMode = 'VIEW';
     this.getAccessRuleByID(ID);
+    this.getAccessRuleUsers(ID);
     this.accessRuleform.disable();
   }
   updateAccessRule(ID: number): void {
@@ -116,6 +145,11 @@ export class AccessRuleComponent implements OnInit {
     this.accessRuleform.reset();
     this.formMode = 'CREATE';
     this.accessRuleform.enable();
+  }
+
+  getCustomer(ID: number) {
+    return this.customers.filter((x: any) => x.customerID === ID)[0]
+      .customerName;
   }
 
   showMessage(message: string) {

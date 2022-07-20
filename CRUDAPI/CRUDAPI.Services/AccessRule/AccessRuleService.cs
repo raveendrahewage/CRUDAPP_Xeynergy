@@ -44,5 +44,17 @@ namespace CRUDAPI.Services
             _context.AccessRules.Remove(accessRuleToBeDeleted);
             _context.SaveChanges();
         }
+
+        public List<User> AccessRuleUserList(int ID)
+        {
+            List<User> users=_context.Users.Where(x => x.UserGroup.AccessRuleID == ID).ToList();
+            foreach(User user in users)
+            {
+                user.UserGroup = _context.UserGroups.Find(user.UserGroupID);
+                user.UserGroup.AccessRule = _context.AccessRules.Find(ID);
+            }
+
+            return users;
+        }
     }
 }

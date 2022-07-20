@@ -36,4 +36,8 @@ export class AccessRuleService {
   deleteAccessRule(ID: number) {
     return this.http.delete(`${this.baseURL}/${ID}`);
   }
+
+  getAccessRuleUsers(ID:number) {
+    return this.http.get(`${this.baseURL}/userList/${ID}`);
+  }
 }

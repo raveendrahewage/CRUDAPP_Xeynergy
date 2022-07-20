@@ -31,8 +31,9 @@ namespace CRUDAPI.Controllers
                 userDtoList.Add(new UserDto
                 {
                     PersonID = user.PersonID,
-                    FullName =user.FirstName+" "+user.LastName,
-                    Email=user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email =user.Email,
                     AttachedCustomerID=user.AttachedCustomerID,
                     UserGroupID=user.UserGroupID,
                     UserGroup = user.UserGroup
@@ -50,7 +51,8 @@ namespace CRUDAPI.Controllers
                 UserDto userDto = new UserDto
                 {
                     PersonID=foundUser.PersonID,
-                    FullName = foundUser.FirstName + " " + foundUser.LastName,
+                    FirstName = foundUser.FirstName,
+                    LastName = foundUser.LastName,
                     Email = foundUser.Email,
                     AttachedCustomerID = foundUser.AttachedCustomerID,
                     UserGroupID = foundUser.UserGroupID,
@@ -75,7 +77,8 @@ namespace CRUDAPI.Controllers
             UserDto userDto = new UserDto
             {
                 PersonID = addedUser.PersonID,
-                FullName = addedUser.FirstName + " " + addedUser.LastName,
+                FirstName = addedUser.FirstName,
+                LastName = addedUser.LastName,
                 Email = addedUser.Email,
                 AttachedCustomerID = addedUser.AttachedCustomerID,
                 UserGroupID = addedUser.UserGroupID,
@@ -103,7 +106,8 @@ namespace CRUDAPI.Controllers
                 UserDto userDto = new UserDto
                 {
                     PersonID = updatedUser.PersonID,
-                    FullName = updatedUser.FirstName + " " + updatedUser.LastName,
+                    FirstName = updatedUser.FirstName,
+                    LastName = updatedUser.LastName,
                     Email = updatedUser.Email,
                     AttachedCustomerID = updatedUser.AttachedCustomerID,
                     UserGroupID = updatedUser.UserGroupID,

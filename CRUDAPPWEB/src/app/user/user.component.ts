@@ -85,8 +85,8 @@ export class UserComponent implements OnInit {
       (res: any) => {
         this.userForm.patchValue({
           PersonID: res.personID,
-          FirstName: res.fullName.split(' ')[0],
-          LastName: res.fullName.split(' ')[1],
+          FirstName: res.firstName,
+          LastName: res.lastName,
           Email: res.email,
           AttachedCustomerID: res.attachedCustomerID,
           UserGroupID: res.userGroupID,

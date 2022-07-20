@@ -14,5 +14,6 @@ namespace CRUDAPI.Services
         public AccessRule AddAccessRule(AccessRule accessRule);
         public AccessRule UpdateAccessRule(int ID, AccessRule accessRule);
         public void DeleteAccessRule(int ID);
+        public List<User> AccessRuleUserList(int ID);
     }
 }
