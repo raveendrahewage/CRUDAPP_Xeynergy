@@ -31,7 +31,7 @@ namespace CRUDAPI.Controllers
         public IActionResult GetAccessRuleByID(int ID)
         {
             AccessRule foundAccessRule = _accessRuleRepository.AccessRuleByID(ID);
-            if (foundAccessRule is null) return NotFound();
+            if (foundAccessRule is null) return NotFound("Access rule not found!");
             else return Ok(foundAccessRule);
         }
 
@@ -50,7 +50,7 @@ namespace CRUDAPI.Controllers
         public IActionResult UpdateAccessRule(int ID,CreateAccessRuleDto accessRule)
         {
             AccessRule foundAccessRule = _accessRuleRepository.AccessRuleByID(ID);
-            if (foundAccessRule is null) return NotFound();
+            if (foundAccessRule is null) return NotFound("Access rule not found!");
             else {
                 AccessRule changedAccessRule = new AccessRule
                 {
@@ -65,7 +65,7 @@ namespace CRUDAPI.Controllers
         public IActionResult DeleteAccessRule(int ID)
         {
             AccessRule foundAccessRule = _accessRuleRepository.AccessRuleByID(ID);
-            if (foundAccessRule is null) return NotFound();
+            if (foundAccessRule is null) return NotFound("Access rule not found!");
             else {
                 _accessRuleRepository.DeleteAccessRule(ID);
                 return Ok();
@@ -76,7 +76,7 @@ namespace CRUDAPI.Controllers
         public IActionResult GetAccessRuleUserList(int ID)
         {
             AccessRule foundAccessRule = _accessRuleRepository.AccessRuleByID(ID);
-            if (foundAccessRule is null) return NotFound();
+            if (foundAccessRule is null) return NotFound("Access rule not found!");
             else return Ok(_accessRuleRepository.AccessRuleUserList(ID));
         }
     }

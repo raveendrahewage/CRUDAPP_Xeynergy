@@ -46,7 +46,7 @@ namespace CRUDAPI.Controllers
         public IActionResult GetUserByID(int ID)
         {
             User foundUser = _userRepository.UserByID(ID);
-            if (foundUser is null) return NotFound();
+            if (foundUser is null) return NotFound("User not found!");
             else {
                 UserDto userDto = new UserDto
                 {
@@ -91,7 +91,7 @@ namespace CRUDAPI.Controllers
         public IActionResult UpdateUser(int ID, CreateUserDto user)
         {
             User foundUser = _userRepository.UserByID(ID);
-            if (foundUser is null) return NotFound();
+            if (foundUser is null) return NotFound("User not found!");
             else
             {
                 User changedUser = new User
@@ -120,7 +120,7 @@ namespace CRUDAPI.Controllers
         public IActionResult DeleteUser(int ID)
         {
             User foundUser = _userRepository.UserByID(ID);
-            if (foundUser is null) return NotFound();
+            if (foundUser is null) return NotFound("User not found!");
             else
             {
                 _userRepository.DeleteUser(ID);

@@ -31,7 +31,7 @@ namespace CRUDAPI.Controllers
         public IActionResult GetUserGroupByID(int ID)
         {
             UserGroup foundUserGroup = _userGroupRepository.UserGroupByID(ID);
-            if (foundUserGroup is null) return NotFound();
+            if (foundUserGroup is null) return NotFound("User group not found!");
             else return Ok(foundUserGroup);
         }
 
@@ -50,7 +50,7 @@ namespace CRUDAPI.Controllers
         public IActionResult UpdateUserGroup(int ID, CreateUserGroupDto userGroup)
         {
             UserGroup foundUserGroup = _userGroupRepository.UserGroupByID(ID);
-            if (foundUserGroup is null) return NotFound();
+            if (foundUserGroup is null) return NotFound("User group not found!");
             else
             {
                 UserGroup changedUserGroup = new UserGroup
@@ -65,7 +65,7 @@ namespace CRUDAPI.Controllers
         public IActionResult DeleteUserGroup(int ID)
         {
             UserGroup foundUserGroup = _userGroupRepository.UserGroupByID(ID);
-            if (foundUserGroup is null) return NotFound();
+            if (foundUserGroup is null) return NotFound("User group not found!");
             else
             {
                 _userGroupRepository.DeleteUserGroup(ID);

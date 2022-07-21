@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'CRUDAPPWEB';
 
   changeTab(tab: number): void {
-    console.log(tab);
     this.activeTab = tab;
   }
 }
